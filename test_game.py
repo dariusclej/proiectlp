@@ -9,7 +9,7 @@ from game import (
 
 class TestJoc(unittest.TestCase):
 
-
+    """ Teste pentru funcția alegere_utilizator """
     def test_alegere_valida_piatra(self):
         self.assertEqual(alegere_utilizator("piatra"), "piatra")
 
@@ -20,7 +20,7 @@ class TestJoc(unittest.TestCase):
         with self.assertRaises(ValueError):
             alegere_utilizator("fier")
 
-
+    """ Teste pentru alegerea calculatorului """
     def test_alegere_calculator_in_lista(self):
         self.assertIn(alegere_calculator(), ["piatra", "hartie", "foarfeca"])
 
@@ -30,7 +30,7 @@ class TestJoc(unittest.TestCase):
     def test_alegere_calculator_nu_returneaza_none(self):
         self.assertIsNotNone(alegere_calculator())
 
-
+    """ Teste pentru funcția castigator """
     def test_utilizator_castiga(self):
         self.assertEqual(castigator("piatra", "foarfeca"), "utilizator")
 
@@ -40,7 +40,7 @@ class TestJoc(unittest.TestCase):
     def test_egalitate(self):
         self.assertEqual(castigator("hartie", "hartie"), "egal")
 
-
+    """ Teste pentru funcția afiseaza_rezultat """
     def test_afisare_output_fara_eroare(self):
         try:
             afiseaza_rezultat("piatra", "hartie", "calculator")
@@ -59,7 +59,7 @@ class TestJoc(unittest.TestCase):
         except:
             self.fail("Afisarea câștigului utilizatorului a eșuat.")
 
-
+    """ Teste pentru actualizare scor """
     def test_actualizare_scor_utilizator(self):
         scor = {"utilizator": 0, "calculator": 0, "egal": 0}
         rezultat = actualizeaza_scor(scor, "utilizator")
@@ -77,4 +77,3 @@ class TestJoc(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
